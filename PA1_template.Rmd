@@ -7,16 +7,26 @@ output:
 
 
 ## Loading and preprocessing the data
-
-
+setwd("/Users/Jovinhyy/Documents/coursera/reproducible project/project 1")
+data <- read.csv("activity.csv", header = TRUE, sep = ',', colClasses = c("numeric", "character","integer"))
+data$date <- ymd(data$date)
+str(data)
+head(data)
 
 ## What is mean total number of steps taken per day?
-
-
+steps <- data %>%
+filter(!is.na(steps)) %>%
+group_by(date) %>%
+summarize(steps = sum(steps)) %>%
+print
+ggplot(steps, aes(x = steps)) +
+  geom_histogram(fill = "firebrick", binwidth = 1000) +
+  labs(title = "Histogram of Steps per day", x = "Steps per day", y = "Frequency")
 
 ## What is the average daily activity pattern?
-
-
+ggplot(steps, aes(x = steps)) +
+  geom_histogram(fill = "firebrick", binwidth = 1000) +
+  labs(title = "Histogram of Steps per day", x = "Steps per day", y = "Frequency")
 
 ## Imputing missing values
 
