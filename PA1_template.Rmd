@@ -49,7 +49,7 @@ ggplot(steps, aes(x = steps))
   geom_histogram(fill = "firebrick", binwidth = 1000) +
   labs(title = "Histogram of Steps per day", x = "Steps per day", y = "Frequency")
 ```  
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png)
+
 
 ```{r}  
 > mean_steps <- mean(steps$steps, na.rm = TRUE)
@@ -68,7 +68,7 @@ interval <- data %>%
 ggplot(interval, aes(x=interval, y=steps)) +
   geom_line(color = "firebrick")
 ```
-  ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+ 
 ```{r}  
   interval[which.max(interval$steps),]
 ##    interval    steps
@@ -107,7 +107,7 @@ steps_full <- data_full %>%
   geom_histogram(fill = "firebrick", binwidth = 1000) +
   labs(title = "Histogram of Steps per day, including missing values", x = "Steps per day", y = "Frequency")
  ```  
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png)
+
 ```{r}
   mean_steps_full <- mean(steps_full$steps, na.rm = TRUE)
 median_steps_full <- median(steps_full$steps, na.rm = TRUE)
@@ -139,4 +139,3 @@ s <- ggplot(interval_full, aes(x=interval, y=steps, color = weektype)) +
 print(s)
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png)
